@@ -1,8 +1,7 @@
 import { Logger } from "eazy-logger"
-import { transformSync } from "esbuild"
+import { buildSync } from "esbuild"
 import { createElement } from "react"
 import { renderToString } from 'react-dom/server';
-
 import { name, version } from "./package.json"
 
 interface Options {
@@ -18,16 +17,26 @@ export const reactPlugin = {
 
     eleventyConfig.addTemplateFormats("tsx")
     eleventyConfig.addExtension("tsx", {
-      compile(src: string) {
+      compile(src: string, filename: string) {
         return async (props: Object) => {
-          const result = transformSync(src, {
-            loader: "tsx",
-            format: "cjs",
+          const result = buildSync({
+            bundle: true,
+            entryPoints: [filename],
+            format: "iife",
+            globalName: "template",
+            loader: {
+              ".tsx": "tsx",
+            },
+            write: false,
           })
-          eval(result.code)
-          const Component = exports.default
+          const code = result.outputFiles[0].text
+          eval(code)
+          // @ts-ignore
+          const Component = template.default
           const element = createElement(Component, props)
-          const html = renderToString(element)
+          let html = renderToString(element)
+          html = `<!doctype html>${html}`
+          html = html.replace(/ data-reactroot=""/, "")
           return html
         }
       },
