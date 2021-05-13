@@ -1,30 +1,36 @@
 import { Logger } from "eazy-logger"
-import esbuild from "esbuild"
+import { transformSync } from "esbuild"
+import { createElement } from "react"
+import { renderToString } from 'react-dom/server';
+
 import { name, version } from "./package.json"
 
 interface Options {
   verbose?: boolean
 }
 
-export const snapPlugin = {
+export const reactPlugin = {
   initArguments: {},
   configFunction: function(eleventyConfig: any, options: Options) {
     const logger = Logger({
       prefix: `[{blue:${name}}@{blue:${version}}] `,
     })
 
-    if (!options.verbose) {
-      logger.info = () => {}
-    }
-
     eleventyConfig.addTemplateFormats("tsx")
     eleventyConfig.addExtension("tsx", {
-      read: false,
-      getData: true,
-      getInstanceFromInputPath(inputPath) {
-        return require(`${process.cwd()}/${inputPath}`).default
+      compile(src: string) {
+        return async (props: Object) => {
+          const result = transformSync(src, {
+            loader: "tsx",
+            format: "cjs",
+          })
+          eval(result.code)
+          const Component = exports.default
+          const element = createElement(Component, props)
+          const html = renderToString(element)
+          return html
+        }
       },
-
     })
   }
 }
