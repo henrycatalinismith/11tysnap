@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "baseUrl": "./",
+    "declaration": true,
+    "esModuleInterop": true,
+    "lib": ["esnext"],
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "noImplicitUseStrict": true,
+    "outDir": ".",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "target": "es5"
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "./index.ts",
+  ]
+}
