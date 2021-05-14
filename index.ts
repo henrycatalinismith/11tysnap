@@ -22,9 +22,11 @@ export const reactPlugin = {
           const result = buildSync({
             bundle: true,
             entryPoints: [filename],
+            platform: "node",
             format: "iife",
             globalName: "template",
             loader: {
+              ".node": "binary",
               ".tsx": "tsx",
             },
             write: false,
