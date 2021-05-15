@@ -4,6 +4,7 @@
     "baseUrl": "./",
     "declaration": true,
     "esModuleInterop": true,
+    "jsx": "react",
     "lib": ["esnext"],
     "moduleResolution": "node",
     "module": "commonjs",
@@ -11,12 +12,9 @@
     "outDir": ".",
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "target": "es5"
+    "target": "ESNext"
   },
   "exclude": [
     "node_modules"
-  ],
-  "include": [
-    "./11tysnap.ts",
   ]
 }

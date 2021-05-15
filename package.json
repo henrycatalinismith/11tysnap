@@ -1,7 +1,7 @@
 {
   "name": "@hendotcat/11tysnap",
   "description": "Eleventy plugin for server-side React",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT",
   "author": {
     "name": "Henry Catalini Smith",
@@ -36,8 +36,9 @@
     "watch": "tsc --watch"
   },
   "files": [
-    "index.d.ts",
-    "index.js"
+    "11tysnap.d.ts",
+    "11tysnap.js"
   ],
-  "types": "index.d.ts"
+  "main": "11tysnap.js",
+  "types": "11tysnap.d.ts"
 }
