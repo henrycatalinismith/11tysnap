@@ -11,6 +11,7 @@ interface Options {
 export const reactPlugin = {
   initArguments: {},
   configFunction: function(eleventyConfig: any, options?: Options) {
+    process.env.ELEVENTY_EXPERIMENTAL = "true"
     register()
 
     const logger = Logger({
