@@ -21,7 +21,9 @@ export const reactPlugin = {
     function compile(src: string, filename: string) {
       return async (props: Object) => {
         const start = process.hrtime()
-        const Component = require(filename).default
+        const Component = require(
+          `${process.cwd()}/${filename}`
+        ).default
         const element = createElement(Component, props)
         let html = renderToString(element)
         html = `<!doctype html>${html}`
