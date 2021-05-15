@@ -12,7 +12,7 @@
     "outDir": ".",
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "target": "ESNext"
+    "target": "node16"
   },
   "exclude": [
     "node_modules"
