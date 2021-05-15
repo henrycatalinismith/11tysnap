@@ -9,20 +9,30 @@ interface Options {
 
 export const reactPlugin = {
   initArguments: {},
-  configFunction: function(eleventyConfig: any, options: Options) {
+  configFunction: function(eleventyConfig: any, options?: Options) {
     const logger = Logger({
       prefix: `[{blue:${name}}@{blue:${version}}] `,
     })
 
+    if (!options?.verbose) {
+      logger.info = () => {}
+    }
+
     function compile(src: string, filename: string) {
       return async (props: Object) => {
-        const Component = require(
-          `${process.cwd()}/${filename}`
-        ).default
+        const start = process.hrtime()
+        const Component = require(filename).default
         const element = createElement(Component, props)
         let html = renderToString(element)
         html = `<!doctype html>${html}`
         html = html.replace(/ data-reactroot=""/, "")
+        const end = process.hrtime(start)
+        const time = Math.ceil(end[0] * 1e9 + end[1] / 1e6)
+        logger.info([
+          "rendered",
+          `{green:${filename}}`,
+          `[{magenta:${time}ms}]`,
+        ].join(" "))
         return html
       }
     }
