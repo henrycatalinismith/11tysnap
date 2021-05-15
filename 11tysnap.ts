@@ -1,4 +1,5 @@
 import { Logger } from "eazy-logger"
+import { register } from "esbuild-register/dist/node"
 import { createElement } from "react"
 import { renderToString } from 'react-dom/server';
 import { name, version } from "./package.json"
@@ -10,6 +11,8 @@ interface Options {
 export const reactPlugin = {
   initArguments: {},
   configFunction: function(eleventyConfig: any, options?: Options) {
+    register()
+
     const logger = Logger({
       prefix: `[{blue:${name}}@{blue:${version}}] `,
     })
