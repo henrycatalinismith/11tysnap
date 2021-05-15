@@ -14,21 +14,28 @@ export const reactPlugin = {
       prefix: `[{blue:${name}}@{blue:${version}}] `,
     })
 
+    function compile(src: string, filename: string) {
+      return async (props: Object) => {
+        const Component = require(
+          `${process.cwd()}/${filename}`
+        ).default
+        const element = createElement(Component, props)
+        let html = renderToString(element)
+        html = `<!doctype html>${html}`
+        html = html.replace(/ data-reactroot=""/, "")
+        return html
+      }
+    }
+
+    const extension = {
+      compile,
+    }
+
+    eleventyConfig.addExtension("jsx", extension)
+    eleventyConfig.addExtension("tsx", extension)
+
+    eleventyConfig.addTemplateFormats("jsx")
     eleventyConfig.addTemplateFormats("tsx")
-    eleventyConfig.addExtension("tsx", {
-      compile(src: string, filename: string) {
-        return async (props: Object) => {
-          const Component = require(
-            `${process.cwd()}/${filename}`
-          ).default
-          const element = createElement(Component, props)
-          let html = renderToString(element)
-          html = `<!doctype html>${html}`
-          html = html.replace(/ data-reactroot=""/, "")
-          return html
-        }
-      },
-    })
   }
 }
 
