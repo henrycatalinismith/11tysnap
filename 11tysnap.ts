@@ -7,6 +7,18 @@ interface Options {
   verbose?: boolean
 }
 
+interface Props {
+  collections: Object[]
+  pkg: Object
+  page: {
+    filePathStem: string
+    fileSlug: string
+    inputPath: string
+    outputPath: string
+    url: string
+  }
+}
+
 export const reactPlugin = {
   initArguments: {},
   configFunction: function(eleventyConfig: any, options?: Options) {
@@ -25,14 +37,16 @@ export const reactPlugin = {
     }
 
     function compile(src: string, filename: string) {
-      return async (props: Object) => {
+      return async (props: Props) => {
         const start = process.hrtime()
         const Component = require(
           `${process.cwd()}/${filename}`
         ).default
         const element = createElement(Component, props)
         let html = renderToString(element)
-        html = `<!doctype html>${html}`
+        if (props.page.outputPath.endsWith(".html")) {
+          html = `<!doctype html>${html}`
+        }
         html = html.replace(/ data-reactroot=""/, "")
         const end = process.hrtime(start)
         const time = Math.ceil(end[0] * 1e9 + end[1] / 1e6)
