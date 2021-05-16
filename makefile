@@ -19,7 +19,7 @@ distclean: clean
 
 .PHONY:
 examples/%/_site: examples/%/node_modules
-	cd examples/$* && ELEVENTY_EXPERIMENTAL=true yarn eleventy
+	cd examples/$* && yarn eleventy
 	@if [[ `git status --porcelain examples/$*/_site` ]]; then \
 		git --no-pager diff examples/$*/_site; \
 		git clean -df examples; \
