@@ -1,4 +1,5 @@
 import { Logger } from "eazy-logger"
+import { Module } from "module"
 import { createElement } from "react"
 import { renderToString } from 'react-dom/server';
 import { name, version } from "./package.json"
@@ -14,7 +15,7 @@ interface Props {
     filePathStem: string
     fileSlug: string
     inputPath: string
-    outputPath: string
+    outputPath: string | boolean
     url: string
   }
 }
@@ -36,12 +37,36 @@ export const reactPlugin = {
       logger.info = () => {}
     }
 
+    const includePaths = new Set
+
+    function wiretapModules(extension: string) {
+      // @ts-expect-error
+      const extensions = Module._extensions
+      const original = extensions[extension]
+      extensions[extension] = (module: any, filename: string) => {
+        includePaths.add(filename)
+        return original.call(this, module, filename)
+      }
+    }
+
+    wiretapModules(".jsx")
+    wiretapModules(".tsx")
+
+    eleventyConfig.on("beforeBuild", () => {
+      includePaths.forEach(includePath => {
+        delete require.cache[require.resolve(includePath as string)]
+      })
+    })
+
     function compile(src: string, filename: string) {
       return async (props: Props) => {
+        if (typeof props.page.outputPath === "boolean") {
+          return
+        }
+
         const start = process.hrtime()
-        const Component = require(
-          `${process.cwd()}/${filename}`
-        ).default
+        const requirePath = `${process.cwd()}/${filename}`
+        const Component = require(requirePath).default
         const element = createElement(Component, props)
         let html = renderToString(element)
         if (props.page.outputPath.endsWith(".html")) {
@@ -68,6 +93,6 @@ export const reactPlugin = {
 
     eleventyConfig.addTemplateFormats("jsx")
     eleventyConfig.addTemplateFormats("tsx")
+
   }
 }
-
