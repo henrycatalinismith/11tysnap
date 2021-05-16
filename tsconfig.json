@@ -3,6 +3,7 @@
     "allowJs": true,
     "baseUrl": "./",
     "declaration": true,
+    "downlevelIteration": true,
     "esModuleInterop": true,
     "lib": ["esnext"],
     "moduleResolution": "node",

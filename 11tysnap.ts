@@ -37,14 +37,15 @@ export const reactPlugin = {
       logger.info = () => {}
     }
 
-    const includePaths = new Set
+    const requirePaths = new Set<string>()
+    const watchedPaths = new Set<string>()
 
     function wiretapModules(extension: string) {
       // @ts-expect-error
       const extensions = Module._extensions
       const original = extensions[extension]
       extensions[extension] = (module: any, filename: string) => {
-        includePaths.add(filename)
+        requirePaths.add(filename)
         return original.call(this, module, filename)
       }
     }
@@ -53,8 +54,18 @@ export const reactPlugin = {
     wiretapModules(".tsx")
 
     eleventyConfig.on("beforeBuild", () => {
-      includePaths.forEach(includePath => {
+      requirePaths.forEach(includePath => {
         delete require.cache[require.resolve(includePath as string)]
+      })
+    })
+
+    eleventyConfig.on("afterBuild", () => {
+      const watchTargets = new Set(
+        [...requirePaths].filter(p => !watchedPaths.has(p))
+      )
+      watchTargets.forEach(p => {
+        eleventyConfig.addWatchTarget(p)
+        watchedPaths.add(p)
       })
     })
 
