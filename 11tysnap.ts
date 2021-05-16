@@ -1,5 +1,4 @@
 import { Logger } from "eazy-logger"
-import { register } from "esbuild-register/dist/node"
 import { createElement } from "react"
 import { renderToString } from 'react-dom/server';
 import { name, version } from "./package.json"
@@ -11,8 +10,11 @@ interface Options {
 export const reactPlugin = {
   initArguments: {},
   configFunction: function(eleventyConfig: any, options?: Options) {
+    // 11ty's addExtension() API is experimental and only available if this
+    // environment variable is set. In order for 11tysnap to require as little
+    // configuration as possibl, we just forcibly enable experimental mode in
+    // Eleventy here.
     process.env.ELEVENTY_EXPERIMENTAL = "true"
-    register()
 
     const logger = Logger({
       prefix: `[{blue:${name}}@{blue:${version}}] `,

@@ -1,7 +1,7 @@
 {
   "name": "@hendotcat/11tysnap",
   "description": "Eleventy plugin for server-side React",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "license": "MIT",
   "author": {
     "name": "Henry Catalini Smith",
@@ -13,8 +13,7 @@
     "url": "https://github.com/hendotcat/11tysnap.git"
   },
   "dependencies": {
-    "eazy-logger": "3.1.0",
-    "esbuild-register": "^2.5.0"
+    "eazy-logger": "3.1.0"
   },
   "devDependencies": {
     "@types/node": "^14.14.41",
