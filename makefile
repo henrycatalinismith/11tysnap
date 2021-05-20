@@ -19,7 +19,7 @@ distclean: clean
 
 .PHONY:
 examples/%/_site: examples/%/node_modules
-	cd examples/$* && yarn eleventy
+	cd examples/$* && yarn build
 	@if [[ `git status --porcelain examples/$*/_site` ]]; then \
 		git --no-pager diff examples/$*/_site; \
 		git clean -df examples; \
