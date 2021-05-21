@@ -80,7 +80,7 @@ help you troubleshoot.
 This error code is generated when you add the plugin to Eleventy without
 setting up a way for Node to load your `.jsx` or `.tsx` files.
 
-Double check your `.eleventy.js` against the [usage example][#usage] at the
+Double check your `.eleventy.js` against the [usage example](#usage) at the
 top of this readme. Have you set up `esbuild-register` using the `register()`
 call?
 
