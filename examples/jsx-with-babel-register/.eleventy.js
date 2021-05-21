@@ -1,7 +1,5 @@
-const { register } = require("esbuild-register/dist/node")
+require("@babel/register")
 const { reactPlugin } = require("../../")
-
-register()
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(reactPlugin, {

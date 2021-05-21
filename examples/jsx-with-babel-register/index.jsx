@@ -1,9 +1,9 @@
 import React from "react"
 
-export default function Name(props) {
+export default function Index() {
   return (
     <div>
-      name
+      jsx with babel register
     </div>
   )
 }

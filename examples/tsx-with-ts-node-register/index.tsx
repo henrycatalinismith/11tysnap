@@ -1,13 +1,9 @@
-/*---
-title: Homepage
----*/
-
 import React from "react"
 
-export default function Index(props: any): React.ReactElement {
+export default function Index(): React.ReactElement {
   return (
     <div>
-      {props.title}
+      tsx with ts-node register
     </div>
   )
 }
