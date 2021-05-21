@@ -94,7 +94,27 @@ export const reactPlugin = {
         const requirePath = `${process.cwd()}/${filename}`
         const Component = require(requirePath).default
         const element = createElement(Component, props)
-        let html = renderToString(element)
+        let html: string
+
+        try {
+          html = renderToString(element)
+        } catch (e) {
+          logger.error("{red:error: render-error}")
+          logger.error(`{red:unable to render ${path.relative(
+            process.cwd(),
+            filename,
+          )}}`)
+          e.stack.split(/\n/).forEach(line => {
+            logger.error(`{red:${line}}`)
+          })
+          logger.error("{red:for more details, see:}")
+          logger.error(`{red:${homepage}/#render-error}`)
+
+          if (!process.argv.includes("--serve")) {
+            process.exit(-1)
+          }
+        }
+
         if (props.page.outputPath.endsWith(".html")) {
           html = `<!doctype html>${html}`
         }

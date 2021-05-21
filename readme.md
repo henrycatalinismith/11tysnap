@@ -84,6 +84,12 @@ Double check your `.eleventy.js` against the [usage example](#usage) at the
 top of this readme. Have you set up `esbuild-register` using the `register()`
 call?
 
+### `render-error`
+
+This error code is generated when your React code throws an error while
+rendering. It usually means there's a mistake in your code rather than a bug
+in 11tysnap.
+
 ## Contributing
 
 * [Tips][Contributing]
