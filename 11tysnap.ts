@@ -1,8 +1,9 @@
 import { Logger } from "eazy-logger"
 import { Module } from "module"
+import path from "path"
 import { createElement } from "react"
 import { renderToString } from 'react-dom/server';
-import { name, version } from "./package.json"
+import { name, version, homepage } from "./package.json"
 
 interface Options {
   verbose?: boolean
@@ -46,6 +47,20 @@ export const reactPlugin = {
       const original = extensions[extension]
       extensions[extension] = (module: any, filename: string) => {
         requirePaths.add(filename)
+
+        if (typeof original === 'undefined') {
+          logger.error("{red:error: extension-missing}")
+          logger.error(`{red:unable to load ${path.relative(
+            process.cwd(),
+            filename,
+          )} due to missing ${
+            path.extname(filename)
+          } extension}`)
+          logger.error("{red:for more details, see:}")
+          logger.error(`{red:${homepage}/#extension-missing}`)
+          process.exit(-1)
+        }
+
         return original.call(this, module, filename)
       }
     }

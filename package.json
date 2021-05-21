@@ -1,8 +1,9 @@
 {
   "name": "@hendotcat/11tysnap",
   "description": "Eleventy plugin for server-side React",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "license": "MIT",
+  "homepage": "https://github.com/hendotcat/11tysnap",
   "author": {
     "name": "Henry Catalini Smith",
     "email": "smith@hen.cat",

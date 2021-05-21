@@ -68,6 +68,22 @@ Pass `verbose: true` to the plugin and it'll output a whole bunch of
 information about what it's doing. This is mostly useful for debugging. Please
 enable this this option if you're reporting a bug in 11tysnap.
 
+## Error Codes
+
+11tysnap will try to help you set it up properly. If you make a mistake,
+it'll try to help you understand. For some mistakes that it can recognize,
+it'll print a link in the build output pointing at one of these error codes to
+help you troubleshoot.
+
+### `extension-missing`
+
+This error code is generated when you add the plugin to Eleventy without
+setting up a way for Node to load your `.jsx` or `.tsx` files.
+
+Double check your `.eleventy.js` against the [usage example][#usage] at the
+top of this readme. Have you set up `esbuild-register` using the `register()`
+call?
+
 ## Contributing
 
 * [Tips][Contributing]
