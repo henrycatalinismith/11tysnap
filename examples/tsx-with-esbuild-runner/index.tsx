@@ -3,7 +3,7 @@ import React from "react"
 export default function Index(): React.ReactElement {
   return (
     <div>
-      tsx with ts-node
+      tsx with esbuild runner
     </div>
   )
 }
