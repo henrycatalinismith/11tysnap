@@ -33,7 +33,7 @@ then unfortunately this probably isn't the plugin for you.
 ## Installation
 
 ```
-yarn add -D @hendotcat/11tysnap react react-dom
+yarn add -D @henrycatalinismith/11tysnap react react-dom
 ```
 
 ## Usage
@@ -45,7 +45,7 @@ and TSX without requiring any config of its own apart from the `register()` call
 below.
 
 ```javascript
-const { reactPlugin } = require("@hendotcat/11tysnap")
+const { reactPlugin } = require("@henrycatalinismith/11tysnap")
 const { register } = require("esbuild-register/dist/node")
 
 register()
