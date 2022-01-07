@@ -1,7 +1,7 @@
 <p align="center">
   <img
     alt="11tysnap"
-    src="https://github.com/hendotcat/11tysnap/raw/trunk/11tysnap.svg"
+    src="https://github.com/henrycatalinismith/11tysnap/raw/trunk/11tysnap.svg"
     height="64"
   />
 </p>
@@ -14,7 +14,7 @@
 
 <p align="center">
   <img
-    src="https://github.com/hendotcat/11tysnap/actions/workflows/publish.yml/badge.svg"
+    src="https://github.com/henrycatalinismith/11tysnap/actions/workflows/publish.yml/badge.svg"
     alt="Build status"
   />
 </p>
@@ -102,7 +102,7 @@ in 11tysnap.
 [React]: https://reactjs.org
 [Eleventy]: https://www.11ty.dev/
 [esbuild-register]: https://github.com/egoist/esbuild-register
-[examples]: https://github.com/hendotcat/11tysnap/tree/trunk/examples
-[Contributing]: https://github.com/hendotcat/11tyhype/blob/trunk/contributing.md
-[Code of Conduct]: https://github.com/hendotcat/11tyhype/blob/trunk/code_of_conduct.md
-[MIT]: https://github.com/hendotcat/11tyhype/blob/trunk/license
+[examples]: https://github.com/henrycatalinismith/11tysnap/tree/trunk/examples
+[Contributing]: https://github.com/henrycatalinismith/11tyhype/blob/trunk/contributing.md
+[Code of Conduct]: https://github.com/henrycatalinismith/11tyhype/blob/trunk/code_of_conduct.md
+[MIT]: https://github.com/henrycatalinismith/11tyhype/blob/trunk/license
