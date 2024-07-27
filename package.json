@@ -1,33 +1,33 @@
 {
   "name": "@henrycatalinismith/11tysnap",
   "description": "Eleventy plugin for server-side React",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "license": "MIT",
   "homepage": "https://github.com/henrycatalinismith/11tysnap",
   "author": {
     "name": "Henry Catalini Smith",
     "email": "henry@catalinismith.com",
-    "url": "https://hen.cat/"
+    "url": "https://henry.catalinismith.com/"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/henrycatalinismith/11tysnap.git"
   },
   "dependencies": {
-    "eazy-logger": "3.1.0"
+    "eazy-logger": "4.0.1"
   },
   "devDependencies": {
-    "@types/node": "^14.14.41",
-    "@types/react": "^17.0.5",
-    "@types/react-dom": "^17.0.5",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "typescript": "^4.2.4"
+    "@types/node": "^20.14.12",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.5.4"
   },
   "peerDependencies": {
-    "@11ty/eleventy": "^1.0.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "@11ty/eleventy": "^3.0.0-alpha.17",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0"
   },
   "scripts": {
     "build": "tsc",

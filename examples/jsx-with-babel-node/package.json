@@ -15,6 +15,6 @@
     ]
   },
   "scripts": {
-    "build": "yarn babel-node ./node_modules/.bin/eleventy --config=eleventy.ts"
+    "build": "yarn babel-node ./node_modules/.bin/eleventy"
   }
 }

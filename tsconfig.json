@@ -8,7 +8,6 @@
     "lib": ["esnext"],
     "moduleResolution": "node",
     "module": "commonjs",
-    "noImplicitUseStrict": true,
     "outDir": ".",
     "resolveJsonModule": true,
     "skipLibCheck": true,
