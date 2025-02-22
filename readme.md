@@ -102,7 +102,7 @@ in 11tysnap.
 [React]: https://reactjs.org
 [Eleventy]: https://www.11ty.dev/
 [esbuild-register]: https://github.com/egoist/esbuild-register
-[examples]: https://github.com/henrycatalinismith/11tysnap/tree/trunk/examples
-[Contributing]: https://github.com/henrycatalinismith/11tyhype/blob/trunk/contributing.md
-[Code of Conduct]: https://github.com/henrycatalinismith/11tyhype/blob/trunk/code_of_conduct.md
-[MIT]: https://github.com/henrycatalinismith/11tyhype/blob/trunk/license
+[examples]: https://codeberg.org/henrycatalinismith/11tysnap/src/branch/main/examples
+[Contributing]: https://codeberg.org/henrycatalinismith/11tysnap/src/branch/main/contributing.md
+[Code of Conduct]: https://codeberg.org/henrycatalinismith/11tysnap/src/branch/main/code_of_conduct.md
+[MIT]: https://codeberg.org/henrycatalinismith/11tysnap/src/branch/main/license
