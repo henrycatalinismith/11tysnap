@@ -93,7 +93,6 @@ in 11tysnap.
 ## Contributing
 
 * [Tips][Contributing]
-* [Code of Conduct]
 
 ## License
 
@@ -104,5 +103,4 @@ in 11tysnap.
 [esbuild-register]: https://github.com/egoist/esbuild-register
 [examples]: https://codeberg.org/henrycatalinismith/11tysnap/src/branch/main/examples
 [Contributing]: https://codeberg.org/henrycatalinismith/11tysnap/src/branch/main/contributing.md
-[Code of Conduct]: https://codeberg.org/henrycatalinismith/11tysnap/src/branch/main/code_of_conduct.md
-[MIT]: https://codeberg.org/henrycatalinismith/11tysnap/src/branch/main/license
+[MIT]: https://github.com/henrycatalinismith/11tysnap/blob/main/license
