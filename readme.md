@@ -101,6 +101,6 @@ in 11tysnap.
 [React]: https://reactjs.org
 [Eleventy]: https://www.11ty.dev/
 [esbuild-register]: https://github.com/egoist/esbuild-register
-[examples]: https://codeberg.org/henrycatalinismith/11tysnap/src/branch/main/examples
-[Contributing]: https://codeberg.org/henrycatalinismith/11tysnap/src/branch/main/contributing.md
+[examples]: https://github.com/henrycatalinismith/11tysnap/blob/main/examples
+[Contributing]: https://github.com/henrycatalinismith/11tysnap/blob/main/contributing.md
 [MIT]: https://github.com/henrycatalinismith/11tysnap/blob/main/license
